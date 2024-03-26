@@ -1,0 +1,64 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Status {
+  ERROR
+  PENDING
+  RECEIVED
+  ANSWERD
+}
+
+model Customer {
+  id                 String               @id @default(uuid())
+  name               String
+  phoneNumber        String
+  age                String
+  email              String
+  createdAt          DateTime             @default(now())
+  updatedAt          DateTime             @updatedAt
+  CustomersOnCompany CustomersOnCompany[]
+  Report             Report[]
+}
+
+model Company {
+  id                 String               @id @default(uuid())
+  name               String
+  createdAt          DateTime             @default(now())
+  updatedAt          DateTime             @updatedAt
+  CustomersOnCompany CustomersOnCompany[]
+  Report             Report[]
+}
+
+model CustomersOnCompany {
+  companyId  String
+  customerId String
+  // assignetAt DateTime @default(now())
+  // assignedBy String
+  company    Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  customer   Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  @@id([companyId, customerId])
+}
+
+model Report {
+  id        String  @id @default(uuid())
+  questionA String?
+  questionB String?
+  questionC String?
+  status    Status?
+
+  customerId String?
+  companyId  String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  customer Customer? @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  company  Company?  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+}

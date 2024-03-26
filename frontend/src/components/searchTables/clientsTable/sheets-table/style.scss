@@ -1,0 +1,82 @@
+.topBlockDiv {
+    height: 40%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+
+.bottonBlockDiv {
+    height: 60%;
+    display: flex;
+    flex-direction: row;
+}
+
+.newSearchButton {
+    background-color: #05CD78;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 52px;
+    width: 158px;
+    border-color: transparent;
+    font-size: 16px;
+}
+
+.newSearchButton:hover {
+    background-color: green;
+}
+
+.searchInput {
+    color: black;
+    width: 250px;
+    height: 52px;
+    margin-left: 10px;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    background-color: transparent;
+}
+
+.tableInfoSpaces {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.tableTitles {
+    height: 100%;
+    width: 100%;
+    font-style: italic;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+.tableInfos {
+    height: 100%;
+    width: 100%;
+    font-weight: bold;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+.blackLineDiv {
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+}
+
+.blackLineDivLow {
+    width: 100%;
+    height: 1px;
+    background-color: #000;
+}
